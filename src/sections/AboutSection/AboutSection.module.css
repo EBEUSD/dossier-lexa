@@ -1,0 +1,293 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background:
+    radial-gradient(circle at 18% 62%, rgba(135, 81, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #070910 0%, #090b15 100%);
+}
+
+.shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(181, 145, 255, 0.08);
+  background:
+    linear-gradient(90deg, rgba(8, 10, 22, 0.98) 0%, rgba(7, 9, 24, 0.97) 46%, rgba(12, 10, 28, 0.97) 100%);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: min(1380px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 84px 0 88px;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: minmax(360px, 520px) minmax(320px, 1fr);
+  align-items: center;
+  column-gap: 84px;
+  margin-bottom: 42px;
+}
+
+.left {
+  max-width: 520px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #a970ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-bottom: 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 4.4vw, 4rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 0.95;
+  color: #f3eff8;
+}
+
+.description {
+  color: #c9c4d8;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.quoteWrap {
+  display: grid;
+  grid-template-columns: 1px 1fr;
+  align-items: center;
+  column-gap: 26px;
+  min-height: 180px;
+}
+
+.quoteLine {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(186, 146, 255, 0.08), rgba(186, 146, 255, 0.95), rgba(186, 146, 255, 0.08));
+  box-shadow: 0 0 18px rgba(169, 112, 255, 0.25);
+  justify-self: start;
+}
+
+.quote {
+  position: relative;
+  margin: 0;
+  max-width: 430px;
+}
+
+.quote p {
+  color: #e4dff0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.quoteMarkTop,
+.quoteMarkBottom {
+  position: absolute;
+  color: #a970ff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.quoteMarkTop {
+  top: -18px;
+  left: -22px;
+}
+
+.quoteMarkBottom {
+  right: -18px;
+  bottom: -34px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-height: 126px;
+  padding: 22px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(185, 145, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.018));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  color: #a970ff;
+  background: rgba(169, 112, 255, 0.08);
+  border: 1px solid rgba(185, 145, 255, 0.16);
+  flex-shrink: 0;
+}
+
+.cardIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cardContent h3 {
+  margin-bottom: 8px;
+  color: #f0ebf7;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cardContent p {
+  color: #9690a6;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.leftDecor {
+  position: absolute;
+  left: -8px;
+  bottom: 38px;
+  width: 110px;
+  height: 150px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.leftDecor::before,
+.leftDecor::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(176, 131, 255, 0.4);
+  border-radius: 100% 0;
+}
+
+.leftDecor::before {
+  left: 10px;
+  bottom: 38px;
+  width: 34px;
+  height: 16px;
+  transform: rotate(-42deg);
+  box-shadow:
+    16px 18px 0 -1px rgba(176, 131, 255, 0.4),
+    30px 34px 0 -1px rgba(176, 131, 255, 0.4),
+    16px 54px 0 -1px rgba(176, 131, 255, 0.4),
+    30px 72px 0 -1px rgba(176, 131, 255, 0.4);
+}
+
+.leftDecor::after {
+  left: 38px;
+  bottom: 18px;
+  width: 42px;
+  height: 18px;
+  transform: rotate(36deg);
+}
+
+.rightGlow {
+  position: absolute;
+  right: 14%;
+  top: 32px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(146, 86, 255, 0.12) 0%, rgba(146, 86, 255, 0.04) 42%, transparent 74%);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(1380px, calc(100% - 40px));
+    padding: 70px 0 76px;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+    margin-bottom: 34px;
+  }
+
+  .quoteWrap {
+    column-gap: 20px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 32px);
+    padding: 56px 0 60px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .quoteWrap {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+    min-height: auto;
+  }
+
+  .quoteLine {
+    width: 90px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(186, 146, 255, 0.08), rgba(186, 146, 255, 0.95), rgba(186, 146, 255, 0.08));
+  }
+
+  .quote {
+    max-width: 100%;
+  }
+
+  .quote p {
+    font-size: 1.36rem;
+    line-height: 1.45;
+  }
+
+  .quoteMarkTop {
+    top: -14px;
+    left: -4px;
+  }
+
+  .quoteMarkBottom {
+    right: 2px;
+    bottom: -26px;
+  }
+
+  .card {
+    min-height: unset;
+    padding: 20px 18px;
+  }
+
+  .leftDecor,
+  .rightGlow {
+    display: none;
+  }
+}
