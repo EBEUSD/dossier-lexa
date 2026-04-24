@@ -363,7 +363,7 @@ function TeAmoPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.1, delay: 0.55 }}
             >
-              Con todo mi amor
+              Con todo mi amor Dami💕
             </motion.div>
           </div>
         </motion.div>
