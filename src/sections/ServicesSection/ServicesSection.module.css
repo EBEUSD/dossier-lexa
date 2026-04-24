@@ -71,6 +71,7 @@
   font-size: 0.92rem;
   font-weight: 500;
   white-space: nowrap;
+  text-decoration: none;
   transition: color 0.22s ease, transform 0.22s ease;
 }
 
@@ -92,13 +93,13 @@
 
 .card {
   position: relative;
-  display: grid;
-  grid-template-columns: 58px 1fr auto;
-  align-items: center;
-  gap: 18px;
-  min-height: 136px;
-  padding: 24px 20px;
-  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 172px;
+  padding: 24px 22px 20px;
+  border-radius: 22px;
   border: 1px solid rgba(185, 145, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.018));
@@ -112,16 +113,33 @@
     background 0.28s ease;
   color: inherit;
   text-decoration: none;
+  overflow: hidden;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 145, 255, 0.18), transparent);
+  opacity: 0.7;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: rgba(185, 145, 255, 0.22);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 24px 48px rgba(0, 0, 0, 0.24);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(255, 255, 255, 0.022));
+}
+
+.cardMain {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: start;
+  gap: 18px;
 }
 
 .cardIcon {
@@ -152,23 +170,61 @@
 }
 
 .cardBody p {
-  max-width: 260px;
+  max-width: 280px;
   color: #9992aa;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: fit-content;
+  min-width: 116px;
+  min-height: 38px;
+  padding: 0 6px 0 0;
+  margin-left: auto;
+  transition: transform 0.24s ease;
+}
+
+.card:hover .cardCta {
+  transform: translateX(4px);
+}
+
+.cardCtaText {
+  color: #c8b7ea;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .cardArrow {
-  align-self: end;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(185, 145, 255, 0.18);
+  background: rgba(169, 112, 255, 0.06);
   color: #a970ff;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1;
-  transition: transform 0.24s ease, color 0.24s ease;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    color 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .card:hover .cardArrow {
   transform: translateX(3px);
-  color: #c291ff;
+  border-color: rgba(185, 145, 255, 0.3);
+  background: rgba(169, 112, 255, 0.12);
+  color: #d2bbff;
+  box-shadow: 0 8px 20px rgba(125, 78, 255, 0.14);
 }
 
 .glowLeft {
@@ -247,11 +303,15 @@
   }
 
   .card {
+    min-height: unset;
+    padding: 16px 14px 14px;
+    gap: 14px;
+    border-radius: 18px;
+  }
+
+  .cardMain {
     grid-template-columns: 46px 1fr;
     gap: 12px;
-    padding: 16px 14px;
-    min-height: unset;
-    border-radius: 16px;
   }
 
   .cardIcon {
@@ -275,8 +335,20 @@
     line-height: 1.48;
   }
 
+  .cardCta {
+    min-width: 104px;
+    min-height: 34px;
+    gap: 10px;
+  }
+
+  .cardCtaText {
+    font-size: 0.8rem;
+  }
+
   .cardArrow {
-    display: none;
+    width: 30px;
+    height: 30px;
+    font-size: 0.86rem;
   }
 
   .glowLeft,

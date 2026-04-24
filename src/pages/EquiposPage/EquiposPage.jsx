@@ -116,13 +116,13 @@ function EquiposPage() {
               </Link>
             </motion.div>
 
-            <motion.span
+           {/*  <motion.span
               className={styles.eyebrow}
               variants={fadeUp}
               custom={0.08}
             >
               Servicio 01
-            </motion.span>
+            </motion.span> */}
 
             <motion.h1 className={styles.title} variants={fadeUp} custom={0.12}>
               Equipos

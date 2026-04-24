@@ -129,7 +129,7 @@ function PlayersPage() {
                 ← Volver a Servicios
               </Link>
 
-              <span className={styles.eyebrow}>Servicio 02</span>
+             {/*  <span className={styles.eyebrow}>Servicio 02</span> */}
               <h1 className={styles.title}>Players</h1>
               <p className={styles.description}>
                 Acompañamiento individual para fortalecer tu mente,

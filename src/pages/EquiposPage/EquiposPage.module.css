@@ -460,72 +460,209 @@
 
 @media (max-width: 760px) {
   .container {
-    width: calc(100% - 28px);
-    padding: 38px 0 72px;
+    width: calc(100% - 20px);
+    padding: 34px 0 64px;
   }
 
   .hero {
-    margin-bottom: 42px;
+    margin-bottom: 30px;
+  }
+
+  .backLink {
+    margin-bottom: 14px;
+    font-size: 0.84rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 8px;
+    font-size: 0.62rem;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    font-size: clamp(2.8rem, 12vw, 4rem);
+    line-height: 0.94;
   }
 
   .description {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    max-width: 100%;
   }
 
   .contentStack {
-    gap: 26px;
+    gap: 22px;
+  }
+
+  .overviewGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .panel,
   .ctaCard {
-    padding: 20px 16px;
-    border-radius: 20px;
+    padding: 18px 14px;
+    border-radius: 18px;
   }
 
-  .helpGrid {
-    grid-template-columns: 1fr;
+  .sectionHeader {
+    margin-bottom: 16px;
   }
 
-  .idealGrid {
+  .sectionTitle {
+    margin-bottom: 8px;
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    line-height: 1;
+  }
+
+  .sectionText {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .workGrid,
+  .resultsGrid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .workCard,
+  .resultCard {
+    min-height: unset;
+    padding: 14px 12px;
+    gap: 12px;
+    border-radius: 14px;
+  }
+
+  .iconBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .iconBox svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cardContent h3,
+  .processContent h3 {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+
+  .cardContent p,
+  .processContent p {
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+
+  .processList {
+    gap: 10px;
   }
 
   .processItem {
-    grid-template-columns: 42px 1fr;
-    gap: 12px;
-    padding: 12px 12px;
+    grid-template-columns: 34px 38px 1fr;
+    gap: 10px;
+    padding: 12px 10px;
+    align-items: start;
+    border-radius: 14px;
   }
 
   .processNumber {
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
+    font-size: 0.74rem;
   }
 
-  .resultBar {
+  .processIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+
+  .processIcon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .includeSection {
+    padding: 0;
+  }
+
+  .includeGrid {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .includeTag {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+  }
+
+  .includeCheck {
+    width: 16px;
+    height: 16px;
+    font-size: 0.68rem;
+  }
+
+  .ctaCard {
     grid-template-columns: 1fr;
-    padding: 14px;
+    gap: 18px;
   }
 
   .ctaLeft {
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ctaIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .ctaIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+
+  .ctaContent p,
+  .ctaNote {
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
 
   .ctaRight {
-    justify-content: stretch;
+    align-items: stretch;
+    gap: 10px;
   }
 
-  .primaryBtn,
-  .secondaryBtn {
+  .ctaButton {
     width: 100%;
+    min-width: unset;
+    min-height: 46px;
+    padding: 0 16px;
+    border-radius: 12px;
+    font-size: 0.84rem;
   }
 
-  .glowTop,
-  .glowBottom,
+  .leftLeaf,
+  .rightLeaf,
+  .rightGlow,
   .topArc,
-  .topArcDot,
-  .rightLeaf {
+  .topArcPoint {
     display: none;
   }
 }

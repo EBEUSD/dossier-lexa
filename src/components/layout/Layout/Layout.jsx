@@ -1,14 +1,23 @@
+import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import styles from "./Layout.module.css";
 
 function Layout({ children }) {
+  const location = useLocation();
+
+  const hideChromeRoutes = ["/te-amo"];
+  const shouldHideChrome = hideChromeRoutes.includes(location.pathname);
+
+  if (shouldHideChrome) {
+    return <>{children}</>;
+  }
+
   return (
-    <div className={styles.layout}>
+    <>
       <Navbar />
-      <main className={styles.main}>{children}</main>
+      {children}
       <Footer />
-    </div>
+    </>
   );
 }
 

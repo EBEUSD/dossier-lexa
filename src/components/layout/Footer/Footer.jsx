@@ -50,8 +50,8 @@ function Footer() {
             </a>
 
             <a
-              href="https://discord.com"
-              target="_blank"
+             /*  href="https://discord.com"
+              target="_blank" */
               rel="noreferrer"
               className={styles.contactItem}
             >

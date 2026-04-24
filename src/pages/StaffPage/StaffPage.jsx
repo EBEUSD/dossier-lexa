@@ -134,7 +134,7 @@ function StaffPage() {
           <motion.header className={styles.hero} initial="hidden" animate="visible">
             <div className={styles.heroGrid}>
               <motion.div className={styles.heroLeft} variants={fadeRight} custom={0.04}>
-                <span className={styles.eyebrow}>Servicio 03</span>
+               {/*  <span className={styles.eyebrow}>Servicio 03</span> */}
                 <h1 className={styles.title}>Staff</h1>
                 <p className={styles.description}>
                   Acompañamiento a coaches, managers y cuerpos técnicos para fortalecer
