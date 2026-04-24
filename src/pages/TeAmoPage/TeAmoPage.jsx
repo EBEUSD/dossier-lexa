@@ -6,6 +6,10 @@ import fotoLove2 from "../../assets/te-amo/foto-love-2.jpg";
 import fotoLove3 from "../../assets/te-amo/foto-love-3.jpg";
 import fotoLove4 from "../../assets/te-amo/foto-love-4.jpg";
 
+import pochacco1 from "../../assets/te-amo/pochacco-1.gif";
+import pochacco2 from "../../assets/te-amo/pochacco-2.gif";
+import pochaccoWalk from "../../assets/te-amo/pochacco-walk.gif";
+
 const loveText = `Lexa, te amo con cada partícula de mi ser, como jamás sentí que podía amar. Me enseñaste a hacerlo, y quiero que por el resto de la eternidad seas la única que esté a mi lado. Gracias por todo, te amo.`;
 
 const floatingPhotos = [
@@ -70,6 +74,7 @@ const floatingPhotos = [
 function TeAmoPage() {
   const [bursts, setBursts] = useState([]);
   const [showExtra, setShowExtra] = useState(false);
+  const [showPochaccos, setShowPochaccos] = useState(false);
 
   const particles = useMemo(
     () =>
@@ -111,6 +116,7 @@ function TeAmoPage() {
     };
 
     setBursts((prev) => [...prev, newBurst]);
+    setShowPochaccos(true);
 
     setTimeout(() => {
       setBursts((prev) => prev.filter((b) => b.id !== id));
@@ -189,6 +195,59 @@ function TeAmoPage() {
           <img src={photo.src} alt={photo.alt} style={styles.photoImage} />
         </motion.div>
       ))}
+
+      <AnimatePresence>
+        {showPochaccos && (
+          <>
+            <motion.div
+              className="pochacco pochacco-fixed pochacco-one"
+              initial={{ opacity: 0, scale: 0.75, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              style={styles.pochaccoFixed}
+            >
+              <img src={pochacco1} alt="Pochacco tierno 1" style={styles.pochaccoImage} />
+            </motion.div>
+
+            <motion.div
+              className="pochacco pochacco-fixed pochacco-two"
+              initial={{ opacity: 0, scale: 0.75, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              style={styles.pochaccoFixed}
+            >
+              <img src={pochacco2} alt="Pochacco tierno 2" style={styles.pochaccoImage} />
+            </motion.div>
+
+            <motion.div
+              className="pochacco pochacco-walker"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45 }}
+              style={styles.walkerWrap}
+            >
+              <motion.img
+                src={pochaccoWalk}
+                alt="Pochacco caminando"
+                style={styles.walkerImage}
+                animate={{
+                  x: ["-16vw", "92vw"],
+                  opacity: [0, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  ease: "linear",
+                  repeat: Infinity,
+                  times: [0, 0.08, 0.88, 1],
+                }}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {bursts.map((burst) =>
@@ -304,7 +363,7 @@ function TeAmoPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.1, delay: 0.55 }}
             >
-              Con todo mi amor Dami💕
+              Con todo mi amor
             </motion.div>
           </div>
         </motion.div>
@@ -332,9 +391,43 @@ const responsiveStyles = `
     display: block;
   }
 
+  .pochacco {
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .pochacco-one {
+    top: 14%;
+    right: 18%;
+  }
+
+  .pochacco-two {
+    bottom: 16%;
+    left: 16%;
+  }
+
+  .pochacco-walker {
+    left: 0;
+    right: 0;
+    bottom: 3.5%;
+    height: 96px;
+    overflow: hidden;
+  }
+
   @media (max-width: 900px) {
     .desktop-only {
       display: none;
+    }
+
+    .pochacco-one {
+      top: 12%;
+      right: 6%;
+    }
+
+    .pochacco-two {
+      bottom: 14%;
+      left: 6%;
     }
   }
 
@@ -353,6 +446,27 @@ const responsiveStyles = `
     .love-photo.mobile-visible:nth-of-type(2) {
       bottom: 6% !important;
       right: 4% !important;
+    }
+
+    .pochacco-one,
+    .pochacco-two {
+      transform: scale(0.8);
+      transform-origin: center;
+    }
+
+    .pochacco-one {
+      top: 11%;
+      right: 2%;
+    }
+
+    .pochacco-two {
+      bottom: 18%;
+      left: 2%;
+    }
+
+    .pochacco-walker {
+      bottom: 2.2%;
+      height: 76px;
     }
   }
 `;
@@ -521,6 +635,31 @@ const styles = {
     aspectRatio: "4 / 5",
     objectFit: "cover",
     borderRadius: "16px",
+  },
+  pochaccoFixed: {
+    width: "min(112px, 12vw)",
+    minWidth: "82px",
+    filter: "drop-shadow(0 10px 24px rgba(0,0,0,0.28))",
+  },
+  pochaccoImage: {
+    display: "block",
+    width: "100%",
+    height: "auto",
+    objectFit: "contain",
+  },
+  walkerWrap: {
+    position: "absolute",
+    width: "100%",
+    pointerEvents: "none",
+  },
+  walkerImage: {
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    width: "90px",
+    height: "90px",
+    objectFit: "contain",
+    filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.24))",
   },
   backgroundGlowA: {
     position: "absolute",
