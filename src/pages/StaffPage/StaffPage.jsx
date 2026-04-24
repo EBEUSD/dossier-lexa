@@ -273,7 +273,7 @@ function StaffPage() {
               <motion.div className={styles.ctaLeft} variants={fadeRight} custom={0.04}>
                 <div className={styles.ctaLeaf} />
                 <div className={styles.ctaContent}>
-                  <span className={styles.ctaEyebrow}>¿Lista para trabajar juntas?</span>
+                  <span className={styles.ctaEyebrow}>¿Lista para trabajar juntos?</span>
                   <h2>Demos el siguiente paso.</h2>
                   <p>
                     Hablemos de tu staff, tus desafíos y cómo puedo acompañarte para construir

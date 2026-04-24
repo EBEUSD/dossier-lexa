@@ -188,39 +188,73 @@
 
 @media (max-width: 760px) {
   .inner {
-    width: calc(100% - 32px);
-    padding: 0 0 26px;
+    width: calc(100% - 24px);
+    padding: 0 0 22px;
   }
 
   .topLine {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
     padding: 0;
   }
 
   .brandText {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .brandLeaf {
+    font-size: 1.1rem;
+    transform: translateY(-4px);
+  }
+
+  .brandDescription {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .colTitle {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
   }
 
   .linksGrid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 10px;
+  }
+
+  .linkGroup {
+    gap: 6px;
+  }
+
+  .linkGroup a,
+  .contactItem {
+    font-size: 0.84rem;
   }
 
   .socials {
     gap: 8px;
   }
 
+  .socialBtn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .socialBtn svg {
+    font-size: 0.9rem;
+  }
+
   .bottom {
-    margin-top: 20px;
-    padding-top: 16px;
+    margin-top: 14px;
+    padding-top: 12px;
   }
 
   .bottom p {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
+    line-height: 1.45;
   }
 }

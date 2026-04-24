@@ -262,42 +262,76 @@
 
 @media (max-width: 760px) {
   .container {
-    width: calc(100% - 32px);
-    padding: 56px 0 60px;
+    width: calc(100% - 24px);
+    padding: 42px 0 48px;
   }
 
   .card {
-    padding: 24px 18px 20px;
-    border-radius: 20px;
+    padding: 20px 16px 18px;
+    border-radius: 18px;
+    gap: 18px;
+  }
+
+  .eyebrow {
+    font-size: 0.64rem;
+    margin-bottom: 8px;
   }
 
   .title {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
   .description {
-    font-size: 0.96rem;
-    line-height: 1.7;
+    font-size: 0.92rem;
+    line-height: 1.62;
+    margin-bottom: 18px;
   }
 
   .actions {
-    flex-direction: column;
-    align-items: stretch;
+    gap: 10px;
   }
 
   .actionBtn {
     width: 100%;
     justify-content: center;
+    min-height: 46px;
+    padding: 0 14px;
+    border-radius: 12px;
+    font-size: 0.86rem;
   }
 
-  .infoItem {
-    grid-template-columns: 36px 1fr;
+  .footNote {
+    font-size: 0.78rem;
+  }
+
+  .infoList {
     gap: 12px;
   }
 
+  .infoItem {
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+  }
+
   .infoIcon {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .infoIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .infoItem h3 {
+    font-size: 0.88rem;
+    margin-bottom: 2px;
+  }
+
+  .infoItem p {
+    font-size: 0.8rem;
   }
 
   .arc,

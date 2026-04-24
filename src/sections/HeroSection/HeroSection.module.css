@@ -489,71 +489,132 @@
 }
 
 @media (max-width: 760px) {
+  .hero {
+    overflow: hidden;
+  }
+
   .content {
-    width: calc(100% - 32px);
-    padding: 36px 0 26px;
+    width: calc(100% - 24px);
+    padding: 26px 0 18px;
+    row-gap: 8px;
   }
 
   .badge {
-    min-height: 38px;
-    padding: 0 14px;
-    font-size: 0.82rem;
-    margin-bottom: 20px;
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.74rem;
+    margin-bottom: 16px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .badgeIcon {
+    font-size: 0.78rem;
   }
 
   .title {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
+    line-height: 0.92;
+  }
+
+  .light {
+    font-size: clamp(2.9rem, 10vw, 3.6rem);
+  }
+
+  .accent {
+    font-size: clamp(3rem, 10.8vw, 3.8rem);
   }
 
   .description {
-    font-size: 1rem;
-    margin-bottom: 26px;
+    font-size: 0.95rem;
+    line-height: 1.62;
+    margin-bottom: 20px;
+    max-width: 100%;
   }
 
   .actions {
-    flex-direction: column;
-    align-items: stretch;
+    margin-bottom: 18px;
   }
 
   .primaryBtn,
   .secondaryBtn {
     width: 100%;
     min-width: unset;
+    min-height: 50px;
+    border-radius: 14px;
+    font-size: 0.94rem;
   }
 
   .featureGrid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .featureCard {
+    min-height: unset;
+    padding: 14px 14px;
+    border-radius: 16px;
+  }
+
+  .featureIcon {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+
+  .featureIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .featureCard h3 {
+    font-size: 0.92rem;
+    margin-bottom: 4px;
+  }
+
+  .featureCard p {
+    font-size: 0.84rem;
+  }
+
+  .right {
+    min-height: auto;
   }
 
   .imageStage {
-    height: 460px;
+    height: 290px;
+    margin-top: 4px;
   }
 
   .imageBackdrop {
-    width: 280px;
-    height: 280px;
-    bottom: 70px;
+    width: 220px;
+    height: 220px;
+    bottom: 34px;
   }
 
   .imagePanel img {
-    max-width: min(300px, 88%);
-    max-height: 94%;
+    max-width: min(240px, 76%);
+    max-height: 92%;
+    transform: translateY(6px);
   }
 
   .imageFloor {
-    width: 240px;
-    height: 42px;
+    width: 190px;
+    height: 28px;
+    bottom: 8px;
   }
 
   .imageFloorGlow {
-    width: 280px;
-    height: 90px;
+    width: 210px;
+    height: 54px;
+    bottom: 18px;
   }
 
   .glow,
   .leftDecorTop,
   .leftDecorBottom,
-  .rightDecorBottom {
+  .rightDecorBottom,
+  .rightVerticalLine,
+  .branchTop {
     display: none;
   }
 }

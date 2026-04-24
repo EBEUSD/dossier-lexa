@@ -1,12 +1,17 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleGoHomeTop = (e) => {
+  const closeMenu = () => setIsOpen(false);
+
+  const goToHomeTop = (e) => {
     e.preventDefault();
+    closeMenu();
 
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -17,13 +22,14 @@ function Navbar() {
     navigate("/");
   };
 
-  const handleSectionNav = (sectionId) => (e) => {
+  const goToSection = (sectionId) => (e) => {
     e.preventDefault();
+    closeMenu();
 
     if (location.pathname === "/") {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
         window.history.replaceState(null, "", `/#${sectionId}`);
       }
       return;
@@ -32,38 +38,39 @@ function Navbar() {
     navigate(`/#${sectionId}`);
   };
 
+  const isHome = location.pathname === "/";
   const isServicesRoute = location.pathname.startsWith("/servicios");
 
   return (
     <header className={styles.navbar}>
       <div className={styles.inner}>
-        <a href="/" className={styles.brand} onClick={handleGoHomeTop}>
+        <a href="/" className={styles.brand} onClick={goToHomeTop}>
           <span className={styles.brandText}>lexa</span>
           <span className={styles.brandMark}>◜</span>
         </a>
 
         <nav className={styles.nav}>
           <a
-            href="/#hero"
-            onClick={handleGoHomeTop}
-            className={location.pathname === "/" ? styles.active : ""}
+            href="/"
+            onClick={goToHomeTop}
+            className={isHome && !location.hash ? styles.active : ""}
           >
             Inicio
           </a>
 
           <a
             href="/#about"
-            onClick={handleSectionNav("about")}
-            className={location.hash === "#about" && location.pathname === "/" ? styles.active : ""}
+            onClick={goToSection("about")}
+            className={isHome && location.hash === "#about" ? styles.active : ""}
           >
             Sobre mí
           </a>
 
           <a
             href="/#services"
-            onClick={handleSectionNav("services")}
+            onClick={goToSection("services")}
             className={
-              isServicesRoute || (location.hash === "#services" && location.pathname === "/")
+              isServicesRoute || (isHome && location.hash === "#services")
                 ? styles.active
                 : ""
             }
@@ -73,38 +80,100 @@ function Navbar() {
 
           <a
             href="/#methodology"
-            onClick={handleSectionNav("methodology")}
-            className={
-              location.hash === "#methodology" && location.pathname === "/" ? styles.active : ""
-            }
+            onClick={goToSection("methodology")}
+            className={isHome && location.hash === "#methodology" ? styles.active : ""}
           >
             Metodología
           </a>
 
           <a
             href="/#experience"
-            onClick={handleSectionNav("experience")}
-            className={
-              location.hash === "#experience" && location.pathname === "/" ? styles.active : ""
-            }
+            onClick={goToSection("experience")}
+            className={isHome && location.hash === "#experience" ? styles.active : ""}
           >
             Experiencia
           </a>
 
           <a
             href="/#contact"
-            onClick={handleSectionNav("contact")}
-            className={
-              location.hash === "#contact" && location.pathname === "/" ? styles.active : ""
-            }
+            onClick={goToSection("contact")}
+            className={isHome && location.hash === "#contact" ? styles.active : ""}
           >
             Contacto
           </a>
         </nav>
 
-        <a href="/#contact" className={styles.cta} onClick={handleSectionNav("contact")}>
-          Trabajemos juntos
-          <span className={styles.arrow}>↗</span>
+        <div className={styles.actions}>
+          <a href="/#contact" className={styles.cta} onClick={goToSection("contact")}>
+            Trabajemos juntos
+            <span className={styles.arrow}>↗</span>
+          </a>
+
+          <button
+            type="button"
+            className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ""}`}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Abrir menú"
+            aria-expanded={isOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
+      <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ""}`}>
+        <a
+          href="/"
+          onClick={goToHomeTop}
+          className={isHome && !location.hash ? styles.activeMobile : ""}
+        >
+          Inicio
+        </a>
+
+        <a
+          href="/#about"
+          onClick={goToSection("about")}
+          className={isHome && location.hash === "#about" ? styles.activeMobile : ""}
+        >
+          Sobre mí
+        </a>
+
+        <a
+          href="/#services"
+          onClick={goToSection("services")}
+          className={
+            isServicesRoute || (isHome && location.hash === "#services")
+              ? styles.activeMobile
+              : ""
+          }
+        >
+          Servicios
+        </a>
+
+        <a
+          href="/#methodology"
+          onClick={goToSection("methodology")}
+          className={isHome && location.hash === "#methodology" ? styles.activeMobile : ""}
+        >
+          Metodología
+        </a>
+
+        <a
+          href="/#experience"
+          onClick={goToSection("experience")}
+          className={isHome && location.hash === "#experience" ? styles.activeMobile : ""}
+        >
+          Experiencia
+        </a>
+
+        <a
+          href="/#contact"
+          onClick={goToSection("contact")}
+          className={isHome && location.hash === "#contact" ? styles.activeMobile : ""}
+        >
+          Contacto
         </a>
       </div>
     </header>

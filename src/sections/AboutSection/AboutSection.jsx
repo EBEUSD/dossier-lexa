@@ -19,15 +19,11 @@ function AboutSection() {
             <motion.div className={styles.left} variants={fadeRight} custom={0.05}>
               <span className={styles.eyebrow}>Sobre mí</span>
               <h2 className={styles.title}>Sobre mí</h2>
-              <p className={styles.description}>
-                Soy psicóloga especializada en la mente competitiva.
-                <br />
-                Trabajo desde un enfoque cognitivo-conductual para ayudarte
-                <br />
-                a rendir con claridad, gestionar la presión y sostener tu mejor
-                <br />
-                versión en el tiempo.
-              </p>
+            <p className={styles.description}>
+  Soy psicóloga especializada en la mente competitiva. Trabajo desde un enfoque
+  cognitivo-conductual para ayudarte a rendir con claridad, gestionar la presión
+  y sostener tu mejor versión en el tiempo.
+</p>
             </motion.div>
 
             <motion.div className={styles.quoteWrap} variants={fadeLeft} custom={0.12}>
