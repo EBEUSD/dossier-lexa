@@ -6,9 +6,79 @@ import {
 } from "react-icons/hi2";
 import { RiTeamLine } from "react-icons/ri";
 import { FaXTwitter, FaDiscord } from "react-icons/fa6";
+import Swal from "sweetalert2";
 import lexaContact from "../../assets/lexa-contact.png"; // reemplazá por tu imagen real
 
 function ContactSection() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mjgjlloj", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        await Swal.fire({
+          title: "Consulta enviada",
+          text: "Gracias por escribir. Te voy a responder lo antes posible.",
+          icon: "success",
+          background: "#0d1020",
+          color: "#f4f0fb",
+          confirmButtonText: "Perfecto",
+          confirmButtonColor: "#a970ff",
+          customClass: {
+            popup: styles.swalPopup,
+            title: styles.swalTitle,
+            confirmButton: styles.swalButton,
+          },
+          backdrop: "rgba(5, 7, 15, 0.78)",
+        });
+
+        form.reset();
+      } else {
+        await Swal.fire({
+          title: "No se pudo enviar",
+          text: "Hubo un problema al enviar el formulario. Probá de nuevo en unos minutos.",
+          icon: "error",
+          background: "#0d1020",
+          color: "#f4f0fb",
+          confirmButtonText: "Entendido",
+          confirmButtonColor: "#a970ff",
+          customClass: {
+            popup: styles.swalPopup,
+            title: styles.swalTitle,
+            confirmButton: styles.swalButton,
+          },
+          backdrop: "rgba(5, 7, 15, 0.78)",
+        });
+      }
+    } catch (error) {
+      await Swal.fire({
+        title: "Error de conexión",
+        text: "No se pudo completar el envío. Revisá tu conexión e intentá nuevamente.",
+        icon: "error",
+        background: "#0d1020",
+        color: "#f4f0fb",
+        confirmButtonText: "Cerrar",
+        confirmButtonColor: "#a970ff",
+        customClass: {
+          popup: styles.swalPopup,
+          title: styles.swalTitle,
+          confirmButton: styles.swalButton,
+        },
+        backdrop: "rgba(5, 7, 15, 0.78)",
+      });
+    }
+  };
+
   return (
     <section id="contact" className={styles.contactSection}>
       <div className={styles.container}>
@@ -25,11 +95,7 @@ function ContactSection() {
               formulario y contame un poco sobre vos, tu equipo o tu staff.
             </p>
 
-            <form
-              className={styles.form}
-              action="https://formspree.io/f/TU_FORM_ID"
-              method="POST"
-            >
+            <form className={styles.form} onSubmit={handleSubmit}>
               <input
                 type="hidden"
                 name="_subject"
@@ -121,7 +187,7 @@ function ContactSection() {
                 Escribir en X
               </a>
 
-             {/*  <a href="#contact" className={styles.secondaryBtn}>
+              {/*  <a href="#contact" className={styles.secondaryBtn}>
                 <FaDiscord />
                 Discord
               </a> */}
@@ -146,7 +212,7 @@ function ContactSection() {
               </div>
             </div>
 
-           {/*  <a
+            {/*  <a
               href="mailto:llexit505@gmail.com"
               className={`${styles.infoItem} ${styles.infoLink}`}
             >
