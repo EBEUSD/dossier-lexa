@@ -11,6 +11,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-top: 1px solid rgba(181, 145, 255, 0.08);
   border-bottom: 1px solid rgba(181, 145, 255, 0.08);
   background:
     linear-gradient(90deg, rgba(8, 10, 22, 0.98) 0%, rgba(7, 9, 24, 0.97) 46%, rgba(12, 10, 28, 0.97) 100%);
@@ -19,7 +20,7 @@
 .container {
   position: relative;
   z-index: 2;
-  width: min(1380px, calc(100% - 64px));
+  width: min(1320px, calc(100% - 64px));
   margin: 0 auto;
   padding: 78px 0 84px;
 }
@@ -28,12 +29,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 34px;
+  gap: 28px;
+  margin-bottom: 28px;
 }
 
 .headingBlock {
-  max-width: 520px;
+  max-width: 580px;
 }
 
 .eyebrow {
@@ -62,227 +63,199 @@
   line-height: 1.7;
 }
 
-.carouselWrap {
-  position: relative;
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
 }
 
-.trackOuter {
+.controlBtn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(185, 145, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  color: #d9c5ff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+}
+
+.controlBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(185, 145, 255, 0.22);
+  background: rgba(169, 112, 255, 0.09);
+  color: #f0e7ff;
+}
+
+.controlBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.viewport {
   overflow: hidden;
 }
 
 .track {
   display: flex;
   align-items: stretch;
+  gap: 16px;
+  will-change: transform;
 }
 
 .card {
-  position: relative;
-  flex: 0 0 calc(100% / 4);
-  min-height: 290px;
-  padding: 20px 18px 20px;
-  margin-right: 16px;
+  flex: 0 0 calc((100% - 48px) / 4);
+  min-height: 360px;
+  padding: 20px 16px 22px;
   border-radius: 22px;
-  border: 1px solid rgba(185, 145, 255, 0.12);
+  border: 1px solid rgba(185, 145, 255, 0.1);
   background:
-    radial-gradient(circle at top left, rgba(169, 112, 255, 0.08), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0.016));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.024), rgba(255, 255, 255, 0.014));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 20px 50px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
+    inset 0 1px 0 rgba(255, 255, 255, 0.028),
+    0 18px 36px rgba(0, 0, 0, 0.14);
   transition:
-    transform 0.32s ease,
-    border-color 0.32s ease,
-    box-shadow 0.32s ease,
-    background 0.32s ease;
-  overflow: hidden;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(185, 145, 255, 0.18), transparent);
-  opacity: 0.75;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  top: -70px;
-  right: -50px;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(169, 112, 255, 0.12) 0%, rgba(169, 112, 255, 0.03) 42%, transparent 74%);
-  filter: blur(10px);
-  pointer-events: none;
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(185, 145, 255, 0.24);
+  transform: translateY(-4px);
+  border-color: rgba(185, 145, 255, 0.18);
   background:
-    radial-gradient(circle at top left, rgba(169, 112, 255, 0.11), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.042), rgba(255, 255, 255, 0.02));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.018));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 26px 56px rgba(0, 0, 0, 0.26);
+    inset 0 1px 0 rgba(255, 255, 255, 0.034),
+    0 24px 42px rgba(0, 0, 0, 0.18);
 }
 
 .cardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .period {
   display: inline-flex;
   align-items: center;
   min-height: 30px;
-  padding: 0 11px;
+  padding: 0 10px;
   border-radius: 999px;
   border: 1px solid rgba(185, 145, 255, 0.14);
   background: rgba(169, 112, 255, 0.05);
-  color: #b8afca;
+  color: #cdbdff;
   font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.periodDot {
+.dot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #a970ff;
-  box-shadow: 0 0 18px rgba(169, 112, 255, 0.55);
+  background: #b88dff;
+  box-shadow: 0 0 14px rgba(184, 141, 255, 0.45);
+  flex-shrink: 0;
 }
 
 .iconWrap {
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 14px;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 16px;
   border-radius: 16px;
   color: #a970ff;
-  background:
-    linear-gradient(180deg, rgba(169, 112, 255, 0.12), rgba(169, 112, 255, 0.06));
-  border: 1px solid rgba(185, 145, 255, 0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 12px 24px rgba(70, 32, 125, 0.18);
+  background: rgba(169, 112, 255, 0.08);
+  border: 1px solid rgba(185, 145, 255, 0.16);
 }
 
 .iconWrap svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 .cardTitle {
-  margin-bottom: 5px;
-  color: #f4eefb;
-  font-size: 1.18rem;
+  margin-bottom: 6px;
+  color: #f2edf9;
+  font-size: 1.16rem;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.01em;
 }
 
 .cardSubtitle {
-  margin-bottom: 12px;
-  color: #c4bdd6;
+  margin-bottom: 14px;
+  color: #b7aed0;
   font-size: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .pointsList {
+  margin: 0;
+  padding-left: 18px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  padding-left: 17px;
+  gap: 8px;
 }
 
 .pointsList li {
-  color: #a49cb5;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  list-style: disc;
+  color: #9c95af;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .bottomNav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 24px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .dots {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
 }
 
-.dot {
+.dotBtn {
   width: 10px;
   height: 10px;
   border: none;
   border-radius: 999px;
-  background: rgba(185, 145, 255, 0.18);
+  background: rgba(185, 145, 255, 0.2);
   cursor: pointer;
-  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
-.dot:hover {
-  transform: scale(1.1);
-  background: rgba(185, 145, 255, 0.32);
+.dotBtn:hover {
+  transform: scale(1.08);
 }
 
-.activeDot {
+.dotBtnActive {
   background: #a970ff;
-  box-shadow: 0 0 14px rgba(169, 112, 255, 0.34);
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.controlBtn {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(185, 145, 255, 0.14);
-  background: rgba(169, 112, 255, 0.05);
-  color: #a970ff;
-  font-size: 1.05rem;
-  cursor: pointer;
-  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, color 0.24s ease, box-shadow 0.24s ease;
-}
-
-.controlBtn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  border-color: rgba(185, 145, 255, 0.3);
-  background: rgba(169, 112, 255, 0.12);
-  color: #c291ff;
-  box-shadow: 0 10px 24px rgba(125, 78, 255, 0.14);
-}
-
-.controlBtn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
+  box-shadow: 0 0 14px rgba(169, 112, 255, 0.42);
 }
 
 .leftDecor {
   position: absolute;
-  left: -8px;
-  bottom: 38px;
-  width: 110px;
-  height: 150px;
-  opacity: 0.55;
+  left: 26px;
+  bottom: 52px;
+  width: 92px;
+  height: 128px;
+  opacity: 0.34;
   pointer-events: none;
 }
 
@@ -290,35 +263,34 @@
 .leftDecor::after {
   content: "";
   position: absolute;
-  border: 1px solid rgba(176, 131, 255, 0.4);
+  border: 1px solid rgba(176, 131, 255, 0.34);
   border-radius: 100% 0;
 }
 
 .leftDecor::before {
-  left: 10px;
-  bottom: 38px;
+  left: 8px;
+  top: 18px;
   width: 34px;
   height: 16px;
   transform: rotate(-42deg);
   box-shadow:
-    16px 18px 0 -1px rgba(176, 131, 255, 0.4),
-    30px 34px 0 -1px rgba(176, 131, 255, 0.4),
-    16px 54px 0 -1px rgba(176, 131, 255, 0.4),
-    30px 72px 0 -1px rgba(176, 131, 255, 0.4);
+    16px 18px 0 -1px rgba(176, 131, 255, 0.34),
+    30px 36px 0 -1px rgba(176, 131, 255, 0.34),
+    16px 56px 0 -1px rgba(176, 131, 255, 0.34);
 }
 
 .leftDecor::after {
-  left: 38px;
-  bottom: 18px;
-  width: 42px;
-  height: 18px;
-  transform: rotate(36deg);
+  left: 34px;
+  top: 86px;
+  width: 38px;
+  height: 16px;
+  transform: rotate(34deg);
 }
 
 .rightGlow {
   position: absolute;
   right: -40px;
-  bottom: -40px;
+  top: -20px;
   width: 240px;
   height: 240px;
   border-radius: 50%;
@@ -327,23 +299,17 @@
   pointer-events: none;
 }
 
-@media (max-width: 1380px) {
-  .card {
-    flex: 0 0 calc(100% / 3);
-  }
-}
-
 @media (max-width: 1100px) {
   .container {
-    width: min(1380px, calc(100% - 40px));
+    width: min(1320px, calc(100% - 40px));
     padding: 70px 0 76px;
   }
 
   .card {
-    flex: 0 0 calc(100% / 2);
-    min-height: 280px;
+    flex: 0 0 calc((100% - 16px) / 2);
   }
 }
+
 @media (max-width: 760px) {
   .container {
     width: calc(100% - 24px);
@@ -374,6 +340,7 @@
   .controls {
     width: 100%;
     justify-content: center;
+    padding-top: 0;
   }
 
   .controlBtn {
@@ -382,10 +349,13 @@
     border-radius: 12px;
   }
 
+  .track {
+    gap: 10px;
+  }
+
   .card {
     flex: 0 0 100%;
-    min-height: 230px;
-    margin-right: 10px;
+    min-height: 270px;
     padding: 16px 14px 18px;
     border-radius: 18px;
   }
@@ -433,9 +403,6 @@
   }
 
   .bottomNav {
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
     margin-top: 18px;
   }
 

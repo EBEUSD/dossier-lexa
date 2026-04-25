@@ -39,10 +39,9 @@ function HeroSection() {
             </motion.h1>
 
             <motion.p className={styles.description} variants={fadeUp} custom={0.26}>
-              Acompaño a players, equipos y staff a construir
+              Acompaño a players, equipos y staff a desarrollar
               <span> claridad mental</span>,
-              <span> estabilidad emocional</span>,
-              <span> confianza competitiva</span> y
+              <span> estabilidad emocional</span> y
               <span> rendimiento</span> sostenible bajo presión.
             </motion.p>
 

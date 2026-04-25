@@ -319,7 +319,7 @@ function EquiposPage() {
                 variants={fadeLeft}
                 custom={0.08}
               >
-                <a href="#contact" className={styles.ctaButton}>
+                <a href="/#contact" className={styles.ctaButton}>
                   Agendar una reunión
                   <span>↗</span>
                 </a>

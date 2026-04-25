@@ -1,4 +1,4 @@
-import { FaDiscord, FaInstagram } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 import { HiOutlineMail } from "react-icons/hi";
 import styles from "./Footer.module.css";
@@ -36,6 +36,7 @@ function Footer() {
 
               <div className={styles.linkGroup}>
                 <a href="#experience">Experiencia</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Contacto</a>
               </div>
             </div>
@@ -44,14 +45,14 @@ function Footer() {
           <div className={styles.contactCol}>
             <span className={styles.colTitle}>Contacto</span>
 
-            <a href="mailto:hola@lexa.coach" className={styles.contactItem}>
+            <a href="mailto:llexit505@gmail.com" className={styles.contactItem}>
               <HiOutlineMail />
-              <span>hola@lexa.coach</span>
+              <span>llexit505@gmail.com</span>
             </a>
 
             <a
-             /*  href="https://discord.com"
-              target="_blank" */
+           /*    href="https://discord.com" */
+              target="_blank"
               rel="noreferrer"
               className={styles.contactItem}
             >
@@ -64,16 +65,6 @@ function Footer() {
             <span className={styles.colTitle}>Sígueme</span>
 
             <div className={styles.socials}>
-           {/*    <a
-                href="https://discord.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Discord"
-                className={styles.socialBtn}
-              >
-                <FaDiscord />
-              </a> */}
-
               <a
                 href="https://x.com/lexa505"
                 target="_blank"
@@ -83,16 +74,6 @@ function Footer() {
               >
                 <RiTwitterXLine />
               </a>
-
-             {/*  <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className={styles.socialBtn}
-              >
-                <FaInstagram />
-              </a> */}
             </div>
           </div>
         </div>

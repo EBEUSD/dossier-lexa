@@ -8,6 +8,7 @@ const HOME_SECTIONS = [
   { id: "services", label: "Servicios" },
   { id: "methodology", label: "Metodología" },
   { id: "experience", label: "Experiencia" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contacto" },
 ];
 
@@ -31,7 +32,6 @@ function Navbar() {
     if (!isHome) return;
 
     const sections = HOME_SECTIONS.map(({ id }) => document.getElementById(id)).filter(Boolean);
-
     if (!sections.length) return;
 
     const observer = new IntersectionObserver(
@@ -153,6 +153,10 @@ function Navbar() {
             Experiencia
           </a>
 
+          <a href="/#faq" onClick={goToSection("faq")} className={getNavClass("faq")}>
+            FAQ
+          </a>
+
           <a
             href="/#contact"
             onClick={goToSection("contact")}
@@ -164,7 +168,7 @@ function Navbar() {
 
         <div className={styles.actions}>
           <a href="/#contact" className={styles.cta} onClick={goToSection("contact")}>
-            Trabajemos juntas
+            Trabajemos juntos
             <span className={styles.arrow}>↗</span>
           </a>
 
@@ -213,6 +217,10 @@ function Navbar() {
           className={getMobileNavClass("experience")}
         >
           Experiencia
+        </a>
+
+        <a href="/#faq" onClick={goToSection("faq")} className={getMobileNavClass("faq")}>
+          FAQ
         </a>
 
         <a

@@ -19,11 +19,27 @@ function AboutSection() {
             <motion.div className={styles.left} variants={fadeRight} custom={0.05}>
               <span className={styles.eyebrow}>Sobre mí</span>
               <h2 className={styles.title}>Sobre mí</h2>
-            <p className={styles.description}>
-  Soy psicóloga especializada en la mente competitiva. Trabajo desde un enfoque
-  cognitivo-conductual para ayudarte a rendir con claridad, gestionar la presión
-  y sostener tu mejor versión en el tiempo.
-</p>
+
+              <p className={styles.description}>
+                Soy estudiante avanzada de la Licenciatura en Psicología en la UCSF y
+                tengo aspiraciones de dedicarme profesionalmente a la psicología
+                deportiva. Trabajo desde un enfoque cognitivo-conductual, aplicándolo
+                a contextos de alta exigencia y rendimiento competitivo.
+              </p>
+
+              <p className={styles.description}>
+                Desde hace años me desarrollo en entornos de alto rendimiento, donde
+                la precisión, la disciplina y la consistencia son la base de todo. A lo
+                largo de ese recorrido ocupé roles de liderazgo, coordinando equipos y
+                procesos con un estándar de trabajo riguroso y sostenido.
+              </p>
+
+              <p className={styles.description}>
+                Mi objetivo es acompañar procesos reales: no solo intervenir en un
+                momento puntual, sino ayudar a construir claridad mental, estabilidad y
+                estructuras que puedan sostenerse bajo presión, tanto en players como
+                en equipos y staff.
+              </p>
             </motion.div>
 
             <motion.div className={styles.quoteWrap} variants={fadeLeft} custom={0.12}>
@@ -69,7 +85,7 @@ function AboutSection() {
 
               <div className={styles.cardContent}>
                 <h3>Enfoque cognitivo-conductual</h3>
-                <p>Herramientas prácticas, basadas en evidencia.</p>
+                <p>Herramientas prácticas, aplicadas a contextos reales de exigencia.</p>
               </div>
             </motion.article>
 
@@ -88,7 +104,7 @@ function AboutSection() {
 
               <div className={styles.cardContent}>
                 <h3>Trabajo con players, equipos y staff</h3>
-                <p>De lo individual a lo colectivo, con objetivos claros.</p>
+                <p>Del seguimiento individual a la construcción de dinámicas colectivas.</p>
               </div>
             </motion.article>
 
@@ -113,7 +129,7 @@ function AboutSection() {
 
               <div className={styles.cardContent}>
                 <h3>Procesos sostenibles bajo presión</h3>
-                <p>Resultados que se mantienen cuando el juego se vuelve real.</p>
+                <p>Claridad, estructura y estabilidad para rendir cuando más importa.</p>
               </div>
             </motion.article>
           </motion.div>

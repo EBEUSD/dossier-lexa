@@ -129,7 +129,6 @@ function PlayersPage() {
                 ← Volver a Servicios
               </Link>
 
-             {/*  <span className={styles.eyebrow}>Servicio 02</span> */}
               <h1 className={styles.title}>Players</h1>
               <p className={styles.description}>
                 Acompañamiento individual para fortalecer tu mente,
@@ -282,14 +281,14 @@ function PlayersPage() {
               </motion.div>
 
               <motion.div className={styles.ctaRight} variants={fadeLeft} custom={0.08}>
-                <a href="#contact" className={styles.primaryBtn}>
+                <a href="/#contact" className={styles.primaryBtn}>
                   <span className={styles.btnIcon}>
                     <HiOutlineAcademicCap />
                   </span>
                   Agendar sesión
                 </a>
 
-                <a href="#methodology" className={styles.secondaryBtn}>
+                <a href="/#methodology" className={styles.secondaryBtn}>
                   Ver metodología
                   <span>↗</span>
                 </a>

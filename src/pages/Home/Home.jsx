@@ -5,6 +5,7 @@ import MethodologySection from "../../sections/MethodologySection/MethodologySec
 import ExperienceSection from "../../sections/ExperienceSection/ExperienceSection";
 import ContactSection from "../../sections/ContactSection/ContactSection";
 import styles from "./Home.module.css";
+import FAQSection from "../../sections/FAQSection/FAQSection";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <ServicesSection />
       <MethodologySection />
       <ExperienceSection />
+      <FAQSection />
       <ContactSection />
     </div>
   );

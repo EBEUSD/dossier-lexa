@@ -284,12 +284,12 @@ function StaffPage() {
 
               <motion.div className={styles.ctaRight} variants={fadeLeft} custom={0.08}>
                 <div className={styles.contactButtons}>
-                  <a href="mailto:hola@lexa.coach" className={styles.contactBtn}>
+                  <a href="mailto:llexit505@gmail.com" className={styles.contactBtn}>
                     <HiOutlineMail />
                     Enviar correo
                   </a>
 
-                  <a
+              {/*     <a
                     href="https://wa.me/"
                     target="_blank"
                     rel="noreferrer"
@@ -297,12 +297,12 @@ function StaffPage() {
                   >
                     <RiWhatsappLine />
                     Escribir en WhatsApp
-                  </a>
+                  </a> */}
 
-                  <a href="#contact" className={styles.contactBtn}>
+               {/*    <a href="#contact" className={styles.contactBtn}>
                     <HiOutlinePhone />
                     Agendar llamada
-                  </a>
+                  </a> */}
                 </div>
 
                 <p className={styles.ctaNote}>
